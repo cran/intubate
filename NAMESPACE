@@ -1,0 +1,5 @@
+import("graphics")
+importFrom("magrittr","%>%")
+import("MASS")
+import("stats")
+exportPattern("^[[:alpha:]]+")
