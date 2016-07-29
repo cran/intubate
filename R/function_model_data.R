@@ -15,15 +15,18 @@
 ## You should have received a copy of the GNU General Public License
 ## along with intubate. If not, see <http://www.gnu.org/licenses/>.
 
-ntbt_boxplot <-
-  ntbt_cdplot <-
-  ntbt_coplot <-
-  ntbt_mosaicplot <-
-  ntbt_pairs <-
-  ntbt_plot <-
-  ntbt_spineplot <-
-  ntbt_sunflowerplot <-
-  function(data, formula, ...) {
+function_model_data <- function(model, data, ...) data
+
+## Functions that use *model* followed by *data*
+ntbt_function_model_data <-
+  
+  ## nlme
+  ntbt_gls <-
+  ntbt_nlme <-
+  ntbt_nlsList <-
+  
+  ## Implementation for functions that use *model* followed by *data*
+  function(data, model, ...) {
     Call <- match.call()
     fname <- gsub("ntbt_(.+)", "\\1", as.character(Call[[1]]))
     Call[[1]] <- as.name(fname)
@@ -33,17 +36,4 @@ ntbt_boxplot <-
     
     eval(Call, envir = parent.frame())
   }
-
-ntbt_stripchart <-
-  function(data, formula, ...) {
-    Call <- match.call()
-    fname <- gsub("ntbt_(.+)", "\\1", as.character(Call[[1]]))
-    Call[[1]] <- as.name(fname)
-    
-    Call[2:3] <- Call[3:2]
-    names(Call)[2:3] <- c("x", "data")
-    
-    eval(Call, envir = parent.frame())
-  }
-
 

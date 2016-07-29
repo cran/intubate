@@ -1,5 +1,13 @@
-2016-07-23  Roberto Bertolusso  <rbertolusso@rice.edu>
+2016-07-27  Roberto Bertolusso  <rbertolusso@rice.edu>
+
+        * Release 0.99.2
+
+        * Interfaces to "survival"
+
+2016-07-26  Roberto Bertolusso  <rbertolusso@rice.edu>
 
         * Release 0.99.1
 
-        * Initial version.
+        * Initial version. Interfaces to "stats", "graphics", and "MASS"
+
+

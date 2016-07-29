@@ -15,17 +15,37 @@
 ## You should have received a copy of the GNU General Public License
 ## along with intubate. If not, see <http://www.gnu.org/licenses/>.
 
-ntbt_corresp <-
-  ntbt_glm.nb <-
-  ntbt_lda <-
-  ntbt_lm.gls <-
-  ntbt_lm.ridge <-
-  ntbt_loglm <-
-  ntbt_lqs <-
-  ntbt_polr <-
-  ntbt_qda <-
-  ntbt_rlm <-
-  function(data, formula, ...) {
+function_x_data <- function(x, data, ...) data
+
+## Functions that use *x* followed by *data*.
+
+ntbt_function_x_data <-
+  
+  ## graphics
+  ntbt_stripchart <-
+
+  ## lattice
+  ntbt_barchart <-
+  ntbt_cloud <-
+  ntbt_bwplot <-
+  ntbt_contourplot <-
+  ntbt_dotplot <-
+  ntbt_densityplot <-
+  ntbt_histogram <-
+  ntbt_levelplot <-
+  ntbt_parallelplot <-
+  ntbt_qq <-
+  ntbt_qqmath <-
+  ntbt_splom <-
+  ntbt_stripplot <-
+  ntbt_wireframe <-
+  ntbt_xyplot <-
+
+  ## leaps
+  ntbt_regsubsets <-
+  
+  ## Implementation for functions that use *x* followed by *data*.
+  function(data, x, ...) {
     Call <- match.call()
     fname <- gsub("ntbt_(.+)", "\\1", as.character(Call[[1]]))
     Call[[1]] <- as.name(fname)
@@ -35,3 +55,4 @@ ntbt_corresp <-
     
     eval(Call, envir = parent.frame())
   }
+
