@@ -1,13 +1,130 @@
-import("gam")
-import("graphics")
-import("lattice")
-import("leaps")
-import("magrittr")
-import("MASS")
-import("nlme")
-import("nnet")
-importFrom("pls", "cppls", "mvr", "pcr", "plsr")
-import("rpart")
-import("stats")
-import("survival")
-exportPattern("^[[:alpha:]]+")
+#importFrom("adabag", "autoprune", "bagging", "bagging.cv", "boosting", "boosting.cv")
+#importFrom("AER", "ivreg", "tobit")
+#importFrom("aod", "betabin", "donner", "negbin", "quasibin", "quasipois",
+#                  "raoscott", "splitbin")
+#importFrom("ape", "binaryPGLMM", "compar.gee", "correlogram.formula", "lmorigin", "yule.cov")
+#importFrom("arm", "bayesglm", "bayespolr")
+#importFrom("betareg", "betamix", "betareg", "betatree")
+#importFrom("brglm", "brglm")
+#importFrom("caper", "brunch", "crunch", "macrocaic", "pgls")
+#importFrom("caret", "avNNet", "bagEarth", "bagFDA", "calibration", "dummyVars",
+#                    "icr", "knn3", "lift", "pcaNNet", "sbf",
+#                    "train")
+#importFrom("coin", "ansari_test", "chisq_test", "cmh_test", "conover_test", "fisyat_test",
+#                   "fligner_test", "friedman_test", "independence_test", "klotz_test", "koziol_test",
+#                   "kruskal_test", "lbl_test", "logrank_test", "maxstat_test", "median_test",
+#                   "mh_test", "mood_test", "normal_test", "oneway_test", "quade_test",
+#                   "quadrant_test", "sign_test", "symmetry_test", "taha_test", "savage_test",
+#                   "spearman_test", "wilcox_test", "wilcoxsign_test")
+#importFrom("CORElearn", "attrEval", "CoreModel", "discretize", "ordEval")
+#importFrom("drc", "drm")
+#importFrom("e1071", "svm")
+#importFrom("earth", "earth")
+#importFrom("EnvStats", "calibrate", "gofTest", "gofGroupTest", "kendallSeasonalTrendTest",
+#                       "kendallTrendTest",
+#                       "stripChart", "summaryFull", "summaryStats", "varGroupTest")
+#importFrom("fGarch", "garchFit")
+#importFrom("flexmix", "flexmix", "initFlexmix", "stepFlexmix")
+#importFrom("forecast", "tslm")
+#importFrom("frontier", "sfa")
+#importFrom("gam", "gam")
+#importFrom("gbm", "gbm")
+#importFrom("gee", "gee")
+#importFrom("glmnet", "glmnet", "cv.glmnet")
+#importFrom("glmx", "glmx", "hetglm")
+#importFrom("gmnl", "gmnl")
+#importFrom("gplot", "bandplot", "lowess", "overplot", "plotmeans")
+#importFrom("gss", "gssanova", "gssanova0", "gssanova1", "ssanova", "ssanova0",
+#                  "ssanova9", "sscden", "sscden1", "sscox", "ssden",
+#                  "ssden1", "sshzd", "ssllrm")
+#import("graphics")
+#importFrom("hdm", "rlasso", "rlassoATE", "rlassoATET", "rlassoLATE", "rlassoLATET",
+##                 "rlassoEffects", "rlassoIV", "rlassologit", "tsls")
+#importFrom("Hmisc", "areg.boot", "aregImpute", "biVar", "bpplotM", "dataRep",
+#                    "describe", "Dotplot", "Ecdf", "fit.mult.impute", "nobsY",
+#                    "rcorrcens", "redun", "summary", "summaryD", "summaryM",
+#                    "summaryP", "summaryRc", "summaryS", "transcan", "varclus",
+#                    "xYplot")
+#importFrom("ipred", "bagging", "errorest", "inbagg", "inclass", "slda")
+#importFrom("iRegression", "bivar", "ccrm", "cm", "crm", "MinMax")
+#importFrom("ivfixed", "ivFixed")
+#importFrom("kernlab", "gausspr", "kfa", "kha", "kkmeans", "kpca",
+#                      "kqr", "ksvm", "lssvm", "rvm", "sigest",
+#                      "specc")
+#importFrom("kknn", "train.kknn", "cv.kknn", "kknn")
+#importFrom("klaR", "classscatter", "cond.index", "greedy.wilks", "loclda", "meclight",
+#                   "NaiveBayes", "nm", "partimat", "plineplot", "pvs",
+#                   "rda", "sknn", "stepclass", "woe")
+#importFrom("lars", "lars", "cv.lars")
+#import("lattice")
+#importFrom("latticeExtra" , "ecdfplot", "mapplot", "rootogram", "segplot", "tileplot")
+#importFrom("leaps", "regsubsets")
+#importFrom("lfe", "felm")
+#importFrom("lme4", "glmer", "glmer.nb", "glFormula", "lFormula", "lmer",
+#                   "lmList", "nlmer")
+#importFrom("lmtest", "bgtest", "bptest", "coxtest", "dwtest", "encomptest",
+#           "gqtest", "grangertest", "harvtest", "hmctest", "jtest",
+#           "raintest", "resettest")
+#import("magrittr")
+#importFrom("MASS", "corresp", "glm.nb", "lda", "lm.gls", "lm.ridge",
+#                   "loglm", "logtrans", "lqs", "polr", "qda", "rlm")
+#importFrom("MCMCglmm", "MCMCglmm")
+#importFrom("mda", "fda", "mda")
+#importFrom("metafor", "escalc", "rma")
+#importFrom("mgcv", "bam", "gam", "gamm")
+#importFrom("mlogit", "mlogit")
+#importFrom("mhurdle", "mhurdle")
+#importFrom("minpack.lm", "nlsLM")
+#importFrom("mlogit", "mlogit")
+#importFrom("mnlogit", "mnlogit")
+#importFrom("modeltools", "ModelEnvFormula", "ParseFormula")
+#importFrom("nlme", "gls", "lme", "nlme", "nlsList")
+#importFrom("nlreg", "nlreg")
+#importFrom("nnet", "multinom", "nnet")
+#importFrom("ordinal", "clm", "clm2", "clmm")
+#importFrom("party", "cforest", "ctree", "mob")
+#importFrom("partykit", "cforest", "ctree", "glmtree", "lmtree", "mob",
+#                       "palmtree")
+#importFrom("pls", "cppls", "mvr", "pcr", "plsr")
+#importFrom("plotrix", "barNest", "brkdn.plot", "brkdnNest", "histStack", "plotH")
+#importFrom("pROC", "auc", "ci", "ci.auc", "ci.coords", "ci.se",
+#                   "ci.sp", "ci.thresholds", "multiclass.roc", "plot.roc", "roc")
+#importFrom("pscl", "hurdle", "zeroinfl")
+#importFrom("psychomix", "btmix", "raschmix")
+#importFrom("psychotools", "anchor", "anchortest")
+#importFrom("psychotree", "bttree", "mpttree", "pctree", "raschtree", "rstree")
+#importFrom("quantreg", "dynrq", "KhmaladzeTest", "nlrq", "rq", "rqProcess",
+#                       "rqss")
+#importFrom("randomForest", "randomForest")
+#importFrom("Rchoice", "Rchoice")
+#importFrom("rminer", "fit", "mining")
+#importFrom("rms", "bj", "cph", "Glm", "lrm", "npsurv",
+#                  "ols", "orm", "psm")
+#importFrom("robustbase", "adjbox", "glmrob", "lmrob", "ltsReg", "nlrob")
+#importFrom("rpart", "rpart")
+#importFrom("RRF", "RRF", "rrfImpute")
+#importFrom("RWeka", "AdaBoostM1", "Bagging", "CostSensitiveClassifier", "DecisionStump", "Discretize",
+#           "GainRatioAttributeEval", "IBk", "InfoGainAttributeEval", "J48", "JRip",
+#           "LBR", "LogitBoost", "LinearRegression", "LMT", "Logistic",
+#           "M5P", "M5Rules", "MultiBoostAB", "Normalize", "OneR",
+#           "PART", "SMO", "Stacking")
+#importFrom("sampleSelection", "probit", "binaryChoice", "selection", "heckit")
+#importFrom("sem", "rawMoments", "sem", "tsls")
+#importFrom("spBayes", "bayesGeostatExact", "bayesLMConjugate", "spDynLM")
+#import("stats")
+importFrom("stats", "as.formula")
+#importFrom("strucchange", "breakpoints", "efp", "Fstats", "mefp", "recresid",
+#                          "sctest")
+#importFrom("survey", "svydesign", "twophase")
+#importFrom("survival", "cch", "coxph", "pyears", "survConcordance", "survexp",
+#                       "survfit", "survSplit")
+#importFrom("SwarmSVM", "alphasvm")
+#importFrom("systemfit", "systemfit")
+#importFrom("tree", "tree")
+importFrom("utils", "capture.output")
+#importFrom("vcd", "agreementplot", "assoc", "cd_plot", "cotabplot", "loddsratio",
+#                  "mosaic", "sieve", "spine", "structable")
+#importFrom("vegan", "adipart", "adonis", "adonis2", "bioenv", "capscale",
+#                    "cca", "dbrda", "envfit", "gdispweight", "multipart",
+#                    "ordicloud", "ordisplom", "ordisurf", "ordixyplot")
+exportPattern("intu|ntbt")

@@ -3,27 +3,207 @@
 \docType{package}
 \title{Interface to Popular R Functions for Data Science Pipelines.}
 \description{
-  \code{intubate} implements interfaces to popular R functions with formulas,
-  such as \code{lm}, so they can be included painlessly in data science pipelines
-  implemented by \code{magrittr} with the operator \%>\%.
+  The aim of \code{intubate} (logo \code{<||>}) is to offer a painless way to
+add R functions that that are not pipe-aware to data science pipelines implemented
+by `magrittr` with the operator \code{\%>\%}, without having to rely on workarounds of
+varying complexity. It also implements three extensions (experimental),
+called `intubOrders`, `intuEnv`, and `intuBags`.
+
+For a gentle introduction to \code{intubate}, please see the vignette
+that is included with the package. 
   
-  \code{intubate} allows to use, effortlessly,
-  classic rock solid R functions in a consistent
-  "modern" pipeline notation.
+  Currently, there are 461 interfaces for:
   
-  For functions missing interfaces, there is an easy
-  (one line) way to to create new interfaces "on the fly" 
-  (see \code{\link{ntbt_function_formula_data}}) that should cover
-  the vast majority of functions with formulas
-  (only 4 out of 87 interfaces implemented so far
-  require nonstandard treatment).
+  \code{adabag}: Multiclass AdaBoost.M1, SAMME and Bagging
   
-  Currently, there are interfaces for
-  \code{gam}, \code{graphics}, \code{lattice}, \code{leaps}, \code{MASS},
-  \code{nlme}, \code{nnet}, \code{pls}, \code{rpart}, \code{stats},
-  and \code{survival}.
+  \code{AER}: Applied Econometrics with R
+  
+  \code{aod}: Analysis of Overdispersed Data
+
+  \code{ape}: Analyses of Phylogenetics and Evolution
+
+  \code{arm}: Data Analysis Using Regression and Multilevel/Hierarchical Models
+  
+  \code{betareg}: Beta Regression
+
+  \code{brglm}: Bias reduction in binomial-response generalized linear models
+
+  \code{caper}: Comparative Analyses of Phylogenetics and Evolution in R
+  
+  \code{car}: Companion to Applied Regression
+  
+  \code{caret}: Classification and Regression Training
+  
+  \code{coin}: Conditional Inference Procedures in a Permutation Test Framework
+  
+  \code{CORElearn}: Classification, Regression and Feature Evaluation
+  
+  \code{drc}: Analysis of Dose-Response Curves
+
+  \code{e1071}: Support Vector Machines
+
+  \code{earth}: Multivariate Adaptive Regression Splines
+  
+  \code{EnvStats}: Environmental Statistics, Including US EPA Guidance
+  
+  \code{fGarch}: Rmetrics - Autoregressive Conditional Heteroskedastic Modelling
+  
+  \code{flexmix}: Flexible Mixture Modeling
+
+  \code{forecast}: Forecasting Functions for Time Series and Linear Models
+
+  \code{frontier}: Stochastic Frontier Analysis
+  
+  \code{gam}: Generalized Additive Models
+  
+  \code{gbm}: Generalized Boosted Regression Models
+  
+  \code{gee}: Generalized Estimation Equation Solver
+  
+  \code{glmnet}: Lasso and Elastic-Net Regularized Generalized Linear Models
+  
+  \code{glmx}: Generalized Linear Models Extended
+  
+  \code{gmnl}: Multinomial Logit Models with Random Parameters
+  
+  \code{gplots}: Various R Programming Tools for Plotting Data
+  
+  \code{graphics}: The R Graphics Package
+  
+  \code{gss}: General Smoothing Splines
+  
+  \code{hdm}: High-Dimensional Metrics
+
+  \code{Hmisc}: Harrell Miscellaneous
+
+  \code{ipred}: Improved Predictors
+
+  \code{iRegression}: Regression Methods for Interval-Valued Variables
+  
+  \code{ivfixed}: Instrumental fixed effect panel data model
+  
+  \code{kernlab}: Kernel-Based Machine Learning Lab
+
+  \code{kknn}: Weighted k-Nearest Neighbors
+
+  \code{klaR}: Classification and Visualization
+
+  \code{lars}: Least Angle Regression, Lasso and Forward Stagewise
+
+  \code{lattice}: Trellis Graphics for R
+  
+  \code{latticeExtra}: Extra Graphical Utilities Based on Lattice
+  
+  \code{leaps}: Regression Subset Selection
+  
+  \code{lfe}: Linear Group Fixed Effects
+
+  \code{lme4}: Linear Mixed-Effects Models using 'Eigen' and S4
+  
+  \code{lmtest}: Testing Linear Regression Models
+
+  \code{MASS}: Robust Regression, Linear Discriminant Analysis, Ridge Regression,
+               Probit Regression, ...
+               
+  \code{MCMCglmm}: MCMC Generalised Linear Mixed Models
+
+  \code{mda}: Mixture and Flexible Discriminant Analysis
+  
+  \code{metafor}: Meta-Analysis Package for R
+  
+  \code{mgcv}: Mixed GAM Computation Vehicle with GCV/AIC/REML Smoothness Estimation
+  
+  \code{mhurdle}: Multiple Hurdle Tobit Models
+  
+  \code{minpack.lm}: R Interface to the Levenberg-Marquardt Nonlinear Least-Squares
+                     Algorithm Found in MINPACK, Plus Support for Bounds
+                     
+  \code{mlogit}: Multinomial logit model
+  
+  \code{mnlogit}: Multinomial Logit Model
+  
+  \code{modeltools}: Tools and Classes for Statistical Models
+  
+  \code{nlme}: Linear and Nonlinear Mixed Effects Models
+  
+  \code{nlreg}: Higher Order Inference for Nonlinear Heteroscedastic Models
+  
+  \code{nnet}: Feed-Forward Neural Networks and Multinomial Log-Linear Models
+  
+  \code{ordinal}: Regression Models for Ordinal Data
+  
+  \code{party}: A Laboratory for Recursive Partytioning
+  
+  \code{partykit}: A Toolkit for Recursive Partytioning
+  
+  \code{plotrix}: Various Plotting Functions
+  
+  \code{pls}: Partial Least Squares and Principal Component Regression
+
+  \code{pROC}: Display and Analyze ROC Curves
+
+  \code{pscl}: Political Science Computational Laboratory, Stanford University
+
+  \code{psychomix}: Psychometric Mixture Models
+  
+  \code{psychotools}: Infrastructure for Psychometric Modeling
+
+  \code{psychotree}: Recursive Partitioning Based on Psychometric Models
+
+  \code{quantreg}: Quantile Regression
+
+  \code{randomForest}: Random Forests for Classification and Regression
+  
+  \code{Rchoice}: Discrete Choice (Binary, Poisson and Ordered) Models with Random Parameters
+
+  \code{rminer}: Data Mining Classification and Regression Methods 
+  
+  \code{rms}: Regression Modeling Strategies
+  
+  \code{robustbase}: Basic Robust Statistics
+  
+  \code{rpart}: Recursive Partitioning and Regression Trees
+  
+  \code{RRF}: Regularized Random Forest
+  
+  \code{RWeka}: R/Weka Interface
+  
+  \code{sampleSelection}: Sample Selection Models
+  
+  \code{sem}: Structural Equation Models
+  
+  \code{spBayes}: Univariate and Multivariate Spatial-temporal Modeling
+
+  \code{stats}: The R Stats Package (glm, lm, loess, lqs, nls, ...)
+  
+  \code{strucchange}: Testing, Monitoring, and Dating Structural Changes
+
+  \code{survey}: Analysis of Complex Survey Samples
+
+  \code{survival}: Survival Analysis
+  
+  \code{SwarmSVM}: Ensemble Learning Algorithms Based on Support Vector Machines
+  
+  \code{systemfit}: Estimating Systems of Simultaneous Equations
+  
+  \code{tree}: Classification and Regression Trees
+  
+  \code{vcd}: Visualizing Categorical Data
+  
+  \code{vegan}: Community Ecology Package
+  
   The aim is to provide interfaces to most methodologies
   used in data science.
+  
+  \code{intubate} core depends only on \code{base}, \code{stats}, 
+  and \code{utils} libraries.
+  To keep it as lean as possible, \code{intubate} will not
+  install not load any library. You need to make sure that the
+  library containing the functions to be interfaced are loaded
+  (before or after \code{intubate}). Moreover, you can interface
+  the functions of any library directly without the need to
+  create interfaces (see \code{\link{ntbt}}) so perhaps in the
+  future that will be the preferred way of using \code{intubate}.
 
   \code{intubate} is still a work in progress.
   As such, the implementation may change in future
@@ -33,8 +213,8 @@
 \tabular{ll}{
 Package: \tab intubate\cr
 Type: \tab Package\cr
-Version: \tab 0.99.2\cr
-Date: \tab 2016-07-26\cr
+Version: \tab 1.0.0\cr
+Date: \tab 2016-08-27\cr
 License: \tab GPL (>=2)\cr
 }
 See examples of use below.
@@ -45,6 +225,10 @@ Roberto Bertolusso
 Maintainer: Roberto Bertolusso <rbertolusso@rice.edu>
 }
 \examples{
+\dontrun{
+library(intubate)
+library(magrittr)
+
 ######### Interface to lm #########
 ## Original function to interface
 lm(conc ~ uptake, CO2)
@@ -53,7 +237,6 @@ lm(conc ~ uptake, CO2)
 ntbt_lm(CO2, conc ~ uptake)
 
 ## so it can be used easily in a pipeline.
-library(magrittr)
 CO2 \%>\%
   ntbt_lm(conc ~ uptake)
 
@@ -85,29 +268,10 @@ ntbt_xtabs(ag, len ~ .)
 ToothGrowth \%>\%
   ntbt_aggregate(len ~ ., mean) \%>\%
   ntbt_xtabs(len ~ .)
-
-######### Using original functions in data pipelines #########
-## Using lm directly in a data pipeline will raise an error
-try(CO2 \%>\%
-      lm(conc ~ uptake))
-## unless formula= is specified.
-try(CO2 \%>\%
-      lm(formula=conc ~ uptake))
-
-## Using cor.test directly in a data pipeline will raise an error
-try(USJudgeRatings \%>\%
-      cor.test(~ CONT + INTG))
-## regardless of specifying formula=
-try(USJudgeRatings \%>\%
-      cor.test(formula = ~ CONT + INTG))
-
-## Using aggregate directly in a data pipeline will raise an error
-try(ToothGrowth \%>\%
-      aggregate(len ~ ., mean) \%>\%
-      xtabs(len ~ .))
-## regardless of specifying formula=
-try(ToothGrowth \%>\%
-      aggregate(formula=len ~ ., mean))
+}
+}
+\seealso{
+  \code{\link{intubate}}
 }
 \keyword{intubate}
 \keyword{magrittr}
